@@ -79,7 +79,7 @@ class PsZynqMP(Elaboratable):
         rec = Record(layout, fields=fields, name=axi)
         return rec
 
-    def _get_ports(self):
+    def _get_instance_ports(self):
         ports = {}
         for p, s in self._ports.items():
             if s.dir == 'input':
@@ -118,7 +118,7 @@ class PsZynqMP(Elaboratable):
         ps_i = Instance(
             'PS8',
             a_DONT_TOUCH="true",
-            **self._get_ports(),
+            **self._get_instance_ports(),
         )
 
         m.submodules.ps_i = ps_i
