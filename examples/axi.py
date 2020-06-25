@@ -2,7 +2,7 @@ from nmigen import *
 from nmigen.lib.cdc import ResetSynchronizer
 from nmigen_zynq.ps import PsZynqMP
 from nmigen_zynq.plat import ZynqMPPlatform
-from nmigen_wb2axip import Axi2AxiLite, DemoAxi, AxiMaster
+from nmigen_wb2axip import Axi2AxiLite, AxiLiteXBar, DemoAxi, AxiMaster
 from urllib import request
 
 
@@ -29,14 +29,21 @@ class AxiExample(Elaboratable):
 
         axi_ps = ps.get_axi('maxigp2')
         m.d.comb += axi_ps['ACLK'].eq(clk)
-
-        axi2axil = Axi2AxiLite(data_w=32, addr_w=8, id_w=5, domain='sync')
-        m.submodules.axi2axil = axi2axil
-        m.submodules.demo = demo = DemoAxi(32, 8, 'sync')
-
         axi_master = AxiMaster.from_record(axi_ps)
+
+        axi2axil = Axi2AxiLite(data_w=32, addr_w=16, id_w=5, domain='sync')
+        m.submodules.axi2axil = axi2axil
         m.d.comb += axi_master.connect(axi2axil.axi)
-        m.d.comb += axi2axil.axilite.connect(demo.axilite)
+
+        xbar = AxiLiteXBar(data_w=32, addr_w=16, domain='sync')
+        m.submodules.xbar = xbar
+        xbar.add_master(axi2axil.axilite)
+
+        for i in range(5):
+            demo = DemoAxi(32, 16, 'sync')
+            m.submodules['demo' + str(i)] = demo
+            xbar.add_slave(demo.axilite, 0x1000 * i, 0x1000)
+
         return m
 
 
