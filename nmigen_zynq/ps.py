@@ -70,6 +70,7 @@ class PsZynqMP(Elaboratable):
         return rst
 
     def get_axi(self, axi):
+        assert axi in self.MAXI + self.SAXI
         if axi in self.MAXI:
             layout = get_axi_layout('master')
         elif axi in self.SAXI:
