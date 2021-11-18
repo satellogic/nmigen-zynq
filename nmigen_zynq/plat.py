@@ -2,8 +2,8 @@ from nmigen.vendor.xilinx_ultrascale import *
 
 
 class ZynqMPPlatform(XilinxUltraScalePlatform):
-    file_templates = {
-        **XilinxUltraScalePlatform.file_templates,
+    _vivado_file_templates = {
+        **XilinxUltraScalePlatform._vivado_file_templates,
         "{{name}}.bif": r"""
             all:
             {
@@ -12,8 +12,8 @@ class ZynqMPPlatform(XilinxUltraScalePlatform):
         """
     }
 
-    command_templates = [
-        *XilinxUltraScalePlatform.command_templates,
+    _vivado_command_templates = [
+        *XilinxUltraScalePlatform._vivado_command_templates,
         r"""
             bootgen
             -image {{name}}.bif
