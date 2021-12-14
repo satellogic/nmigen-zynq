@@ -1,4 +1,4 @@
-# nMigen-zynq: nMigen wrapper for Zynq devices.
+# amaranth-zynq: Amaranth wrapper for Zynq devices.
 
 With this package you will be able to instantiate a processor system
 for Zynq devices without Block design and other Vivado ugly stuff.
