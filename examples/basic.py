@@ -1,7 +1,7 @@
-from nmigen import *
-from nmigen.lib.cdc import ResetSynchronizer
-from nmigen_zynq.ps import PsZynqMP
-from nmigen_zynq.plat import ZynqMPPlatform
+from amaranth import *
+from amaranth.lib.cdc import ResetSynchronizer
+from amaranth_zynq.ps import PsZynqMP
+from amaranth_zynq.plat import ZynqMPPlatform
 
 
 class Zu3egPlatform(ZynqMPPlatform):

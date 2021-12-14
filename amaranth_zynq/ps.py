@@ -1,4 +1,4 @@
-from nmigen import Elaboratable, Signal, Module, Instance, Record
+from amaranth import Elaboratable, Signal, Module, Instance, Record
 from .layouts import get_ps8_layout, get_axi_layout
 
 class PsSignal(Signal):

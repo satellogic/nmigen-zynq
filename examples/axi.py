@@ -1,8 +1,8 @@
-from nmigen import *
-from nmigen.lib.cdc import ResetSynchronizer
-from nmigen_zynq.ps import PsZynqMP
-from nmigen_zynq.plat import ZynqMPPlatform
-from nmigen_wb2axip import Axi2AxiLite, AxiLiteXBar, DemoAxi, AxiMaster
+from amaranth import *
+from amaranth.lib.cdc import ResetSynchronizer
+from amaranth_zynq.ps import PsZynqMP
+from amaranth_zynq.plat import ZynqMPPlatform
+from amaranth_wb2axip import Axi2AxiLite, AxiLiteXBar, DemoAxi, AxiMaster
 from urllib import request
 
 
