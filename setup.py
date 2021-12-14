@@ -15,15 +15,15 @@ def scm_version():
 
 
 setup(
-    name="nmigen_zynq",
+    name="amaranth_zynq",
     use_scm_version=scm_version(),
     author="andresdemski",
     author_email="andresdemski@gmail.com",
-    description="nMigen Zynq support",
+    description="Amaranth Zynq support",
     license="BSD",
     python_requires="~=3.6",
     install_requires=[
-        "nmigen",
+        "amaranth @ git+https://github.com/amaranth-lang/amaranth",
     ],
     packages=find_packages(exclude=["*.test*"]),
 )
