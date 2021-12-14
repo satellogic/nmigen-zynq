@@ -1,4 +1,4 @@
-from nmigen.vendor.xilinx_ultrascale import *
+from amaranth.vendor.xilinx_ultrascale import *
 
 
 class ZynqMPPlatform(XilinxUltraScalePlatform):
