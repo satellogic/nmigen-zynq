@@ -23,7 +23,7 @@ setup(
     license="BSD",
     python_requires="~=3.6",
     install_requires=[
-        "amaranth @ git+https://github.com/amaranth-lang/amaranth",
+        "amaranth",
     ],
     packages=find_packages(exclude=["*.test*"]),
 )
