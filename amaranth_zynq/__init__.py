@@ -1,2 +1,2 @@
-from .ps import PsZynqMP
-from .plat import ZynqMPPlatform
+from .ps7 import *
+from .ps8 import *

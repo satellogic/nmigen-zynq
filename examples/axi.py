@@ -1,7 +1,7 @@
 from amaranth import *
 from amaranth.lib.cdc import ResetSynchronizer
-from amaranth_zynq.ps import PsZynqMP
-from amaranth_zynq.plat import ZynqMPPlatform
+from amaranth_zynq.ps8.ps import PsZynqMP
+from amaranth_zynq.ps8.plat import ZynqMPPlatform
 from amaranth_wb2axip import Axi2AxiLite, AxiLiteXBar, DemoAxi, AxiMaster
 from urllib import request
 
@@ -50,4 +50,3 @@ class AxiExample(Elaboratable):
 core = AxiExample()
 plat = Zu3egPlatform()
 plat.build(core)
-

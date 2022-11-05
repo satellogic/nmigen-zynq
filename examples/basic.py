@@ -1,7 +1,7 @@
 from amaranth import *
 from amaranth.lib.cdc import ResetSynchronizer
-from amaranth_zynq.ps import PsZynqMP
-from amaranth_zynq.plat import ZynqMPPlatform
+from amaranth_zynq.ps8.ps import PsZynqMP
+from amaranth_zynq.ps8.plat import ZynqMPPlatform
 
 
 class Zu3egPlatform(ZynqMPPlatform):
